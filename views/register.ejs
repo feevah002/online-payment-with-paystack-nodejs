@@ -1,0 +1,36 @@
+<%- include ('./partials/header.ejs') %> 
+<div class="container">
+<form action ="/auth/register" method="POST">
+  <div class="mb-3">
+    <label for="Email" class="form-label">Email address</label>
+    <input name="username"type="email" class="form-control" id="Email" aria-describedby="emailHelp" value="john@gmail.com">
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+
+  <div class="mb-3">
+    <label for="firstname" class="form-label">Firstname</label>
+    <input name="firstname"type="text" class="form-control" id="Firstname">
+  </div>
+
+  <div class="mb-3">
+    <label for="lastname" class="form-label">lastname</label>
+    <input name="lastname"type="text" class="form-control" id="lastname">
+  </div>
+  <div class="mb-3">
+    <label for="matric" class="form-label">matric</label>
+    <input name="matric"type="text" class="form-control" id="matric">
+  </div>
+  <div class="mb-3">
+    <label for="middlename" class="form-label">middlename</label>
+    <input name="middlename"type="text" class="form-control" id="middlename">
+  </div>
+
+  <div class="mb-3">
+    <label for="Password" class="form-label">Password</label>
+    <input name="password"type="password" class="form-control" id="Password"value="a">
+  </div>
+
+  <button type="submit" class="btn btn-success">Register</button>
+</form>
+</div>
+<%- include ('./partials/footer.ejs') %> 

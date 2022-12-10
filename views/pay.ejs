@@ -1,0 +1,52 @@
+<%- include ('./partials/header.ejs') %> 
+
+<div class="container">
+  <form id="paymentForm">
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input name="username"type="email" class="form-control" id="email" aria-describedby="emailHelp" value="john@gmail.com" disabled>
+    </div>
+    <div class="mb-3">
+      <label for="name" class="form-label">Full Name</label>
+      <input name="name"type="text" class="form-control" id="name" value="john doe " disabled>
+    </div>
+    <div class="mb-3">
+      <label for="matric" class="form-label">matric</label>
+      <input name="name"type="text" class="form-control" id="matric" value="user matric" disabled>
+    </div>
+    <div class="mb-3">
+      <label for="dues" class="form-label">dues</label>
+      <input name="dues"type="NUmber" class="form-control" id="dues"  value="4000" disabled>
+    </div>
+    <button class="btn btn-success" type="submit" onclick="payWithPaystack()">Submit</button>
+  </form>
+
+</div>
+
+
+  <script type="text/javascript" >
+
+    const paymentForm = document.getElementById('paymentForm');
+    paymentForm.addEventListener("submit", payWithPaystack, false);
+    function payWithPaystack(e) {
+      e.preventDefault();
+      let handler = PaystackPop.setup({
+        key: 'pk_test_0702963a58c347c615bf02c1ad9da8f8c31307b6', // Replace with your public key
+        email: document.getElementById("email").value,
+        amount: document.getElementById("dues").value * 100,
+        ref: ''+ Math.floor((Math.random() * 1000000000) + 1),
+        onClose: function(){
+        
+        },
+        callback: function(response){
+           
+        }
+      });
+    
+      handler.openIframe();
+    }
+  </script>
+       
+     
+  </body>
+</html>
